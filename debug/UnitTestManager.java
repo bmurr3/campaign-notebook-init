@@ -16,7 +16,7 @@ public class UnitTestManager {
 		boolean unitTestResult = true;
 		
 		try {
-			UnitTestThread logicTest = new UnitTestThread("", null);
+			UnitTestThread logicTest = new UnitTestThread("LogicTest", null);
 			
 			UnitTestThread[] testSet = new UnitTestThread[] {
 					logicTest

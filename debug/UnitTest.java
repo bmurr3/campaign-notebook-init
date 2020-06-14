@@ -4,7 +4,7 @@ package com.init.debug;
  * UnitTest Interface
  * 
  * @version 1.0 13 June 2020
- * @author wdmur
+ * @author William Murray III
  */
 public interface UnitTest {
 	public DebugResult startTest();
