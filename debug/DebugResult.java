@@ -27,7 +27,7 @@ public class DebugResult {
 	
 	public void addResult(boolean arg0, String messageOnFailure)
 			throws UnitFailureException {
-		this.hasPassed = this.hasPassed && arg0;
+		this.hasPassed = arg0;
 		
 		if (this.hasPassed == false) {
 			this.resultMessage = "[FAIL]: " + messageOnFailure;

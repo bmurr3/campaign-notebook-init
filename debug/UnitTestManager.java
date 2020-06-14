@@ -55,7 +55,6 @@ class UnitTestThread extends Thread {
 	public UnitTestThread(String classToCall, Thread[] dependencies) {
 		this.classToCall = classToCall;
 		this.dependencies = dependencies;
-		this.result = new DebugResult();
 	}
 	
 	private boolean isAnyDependencyActive() {
@@ -97,6 +96,7 @@ class UnitTestThread extends Thread {
 			out.println(String.format("[%25s]$ Result: %s", this.classToCall,
 					this.result.getResultMessage()));
 		} catch (Exception e) {
+			this.result = new DebugResult();
 			try {
 				this.result.addResult(e == null, e.getMessage());
 			} catch (UnitFailureException e1) {
