@@ -10,7 +10,7 @@ package com.init.debug;
  * @version 1.0 13 June 2020
  * @author William Murray III
  */
-class DebugResult {
+public class DebugResult {
 	/**
 	 * The message to be returned upon the failure of a unit test.
 	 */
@@ -41,22 +41,5 @@ class DebugResult {
 	
 	public boolean getResult() {
 		return this.hasPassed;
-	}
-}
-
-/**
- * UnitFailureException
- * 
- * @version 1.0 13 June 2020
- * @author William Murray III
- */
-class UnitFailureException extends Exception {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6913369704042179014L;
-
-	public UnitFailureException() {
-		super("");
 	}
 }
