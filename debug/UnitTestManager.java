@@ -5,13 +5,20 @@ import static java.lang.System.out;
 import java.lang.reflect.Method;
 import java.util.concurrent.Semaphore;
 
+// TODO: Auto-generated Javadoc
 /**
- * UnitTestManager
- * 
- * @version 1.0 13 June 2020
+ * UnitTestManager.
+ *
  * @author William Murray III
+ * @version 1.0 13 June 2020
  */
 public class UnitTestManager {
+	
+	/**
+	 * Start unit tests.
+	 *
+	 * @return true, if successful
+	 */
 	public static boolean startUnitTests() {
 		boolean unitTestResult = true;
 		
@@ -44,19 +51,42 @@ public class UnitTestManager {
 	}
 }
 
+/**
+ * The Class UnitTestThread.
+ */
 class UnitTestThread extends Thread {
+	
+	/** The Constant UNIT_TEST_PATH. */
 	private static final String UNIT_TEST_PATH = "com.init.debug.unit.";
+	
+	/** The active tasks. */
 	public static Semaphore activeTasks = new Semaphore(4);
 	
+	/** The dependencies. */
 	private Thread[] dependencies;
+	
+	/** The class to call. */
 	private String classToCall;
+	
+	/** The result. */
 	public DebugResult result;
 	
+	/**
+	 * Instantiates a new unit test thread.
+	 *
+	 * @param classToCall the class to call
+	 * @param dependencies the dependencies
+	 */
 	public UnitTestThread(String classToCall, Thread[] dependencies) {
 		this.classToCall = classToCall;
 		this.dependencies = dependencies;
 	}
 	
+	/**
+	 * Checks if is any dependency active.
+	 *
+	 * @return true, if is any dependency active
+	 */
 	private boolean isAnyDependencyActive() {
 		boolean isDependencyActive = false;
 		
@@ -73,6 +103,9 @@ class UnitTestThread extends Thread {
 		return isDependencyActive;
 	}
 	
+	/**
+	 * Run.
+	 */
 	@Override
 	public void run() {
 		try {
