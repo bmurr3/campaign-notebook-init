@@ -24,9 +24,14 @@ public class UnitTestManager {
 		
 		try {
 			UnitTestThread logicTest = new UnitTestThread("LogicTest", null);
+			UnitTestThread languageTest = new UnitTestThread("LanguageTest",
+					new UnitTestThread[] {
+							logicTest
+					});
 			
 			UnitTestThread[] testSet = new UnitTestThread[] {
-					logicTest
+					logicTest,
+					languageTest
 			};
 			
 			for (UnitTestThread test : testSet) {
@@ -131,7 +136,7 @@ class UnitTestThread extends Thread {
 		} catch (Exception e) {
 			this.result = new DebugResult();
 			try {
-				this.result.addResult(e == null, e.getMessage());
+				this.result.addResult(e == null, e.toString());
 			} catch (UnitFailureException e1) {
 				out.println(String.format("[%25s]$ %s", this.classToCall,
 						this.result.getResultMessage()));
